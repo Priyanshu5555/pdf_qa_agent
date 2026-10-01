@@ -10,6 +10,10 @@ collection = client.get_collection(name="resume")
 # 3. Load the same embedding model
 model = SentenceTransformer("all-MiniLM-L6-v2")
 
+print("=" * 50)
+print("          PDF Q&A RAG AGENT")
+print("=" * 50)
+
 # 4. Keep asking questions
 while True:
 
@@ -30,13 +34,11 @@ while True:
         n_results=2
     )
 
-    # 7. Display retrieved chunks
-    print("\nRetrieved chunks:")
+    # 7. Display relevant information
+    print("\nRelevant information:")
 
     for i, document in enumerate(results["documents"][0]):
-        print(f"\nChunk {i + 1}:")
+        print(f"\n--- Result {i + 1} ---")
         print(document)
 
-    # 8. Display distances
-    print("\nDistances:")
-    print(results["distances"][0])
+    print("\n" + "-" * 50)
